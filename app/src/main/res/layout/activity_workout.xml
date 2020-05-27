@@ -13,7 +13,8 @@
         android:background="@color/buttonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white" />
 
     <LinearLayout
         android:id="@+id/ButtonContainerLinearLayout"
@@ -73,14 +74,15 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </FrameLayout>
+
         <TextView
             android:id="@+id/upComingExercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:text="@string/first_exercise"
             android:textColor="@color/black"
-            android:textSize="@dimen/textSize"
-            android:text="@string/first_exercise"/>
+            android:textSize="@dimen/textSize" />
     </LinearLayout>
 
     <LinearLayout
@@ -155,8 +157,8 @@
         android:id="@+id/recyclerViewExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/ButtonContainerLinearLayout"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/ButtonContainerLinearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

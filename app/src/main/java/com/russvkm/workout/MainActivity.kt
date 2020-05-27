@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         intendingToBmiActivity()
+        intendingToHistoryActivity()
         startButtonLayout.setOnClickListener {
             intendingToOtherActivity()
         }
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
     private fun intendingToBmiActivity(){
         bmi.setOnClickListener {
             startActivity(Intent(this@MainActivity,Bmi::class.java))
+        }
+    }
+    private fun intendingToHistoryActivity(){
+        history.setOnClickListener {
+            startActivity(Intent(this@MainActivity,History::class.java))
         }
     }
 }
