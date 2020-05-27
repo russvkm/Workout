@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#ff0000">
+    <item
+        android:id="@+id/mask">
+        <shape
+            android:shape="oval">
+            <solid
+                android:color="#ff000000"/>
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/round_value"/>
+
+</ripple>

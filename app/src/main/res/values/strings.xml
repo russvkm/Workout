@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Workout</string>
+    <string name="start">START</string>
+    <string name="home">home</string>
+    <string name="get_ready_for_exercise">GET READY FOR EXERCISE</string>
+    <string name="ten">10</string>
+    <string name="thirty">30</string>
+    <string name="exerciseName">EXERCISE NAME</string>
+    <string name="first_exercise">Upcoming Exercise\nJumping Jacks</string>
+    <string name="exercise_image">Exercise Image</string>
+    <string name="end_text">Exercise End</string>
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="back_press">pressing back will close your exercise activity</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="bmi">BMI</string>
+    <string name="history">History</string>
+    <string name="label">WEIGHT (in kg)</string>
+    <string name="calculate">Calculate BMI</string>
+    <string name="label_height">HEIGHT (in cms)</string>
+    <string name="united_states">US UNITS</string>
+    <string name="metric">METRIC UNITS</string>
+    <string name="label_height_feet">Height (in Feet)</string>
+    <string name="label_height_inch">Height (in inches)</string>
+    <string name="label_weight_lbs">WEIGHT (in lbs)</string>
+</resources>
