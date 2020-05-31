@@ -23,4 +23,9 @@
     <string name="label_height_feet">Height (in Feet)</string>
     <string name="label_height_inch">Height (in inches)</string>
     <string name="label_weight_lbs">WEIGHT (in lbs)</string>
+    <string name="exercise_history">Exercise History</string>
+    <string name="no_data_available_to_show">No Data available to show</string>
+    <string name="you_burn_120_calories">You Burned 120 calories</string>
+    <string name="congratulation_you_complete_the_exercise">Congratulation You completed the exercise</string>
+    <string name="finish">Finish</string>
 </resources>

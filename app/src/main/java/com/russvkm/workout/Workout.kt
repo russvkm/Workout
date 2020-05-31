@@ -1,12 +1,16 @@
 package com.russvkm.workout
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +29,7 @@ class Workout : AppCompatActivity(), TextToSpeech.OnInitListener{
     private var exerciseIndex=-1
     private var textToSpeech:TextToSpeech?=null
     private var exerciseNumberAdapter:ExerciseNumberAdapter?=null
-    var player:MediaPlayer?=null
+    private var player:MediaPlayer?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +51,7 @@ class Workout : AppCompatActivity(), TextToSpeech.OnInitListener{
     }
     private fun countDownTimer(){
         starterProgressBar.progress=currentProgress
-       timeCountDown=object :CountDownTimer(10000,1000){
+       timeCountDown=object :CountDownTimer(15000,1000){
            @SuppressLint("SetTextI18n")
            override fun onFinish() {
                countDownTimer.text="Go!"
@@ -62,9 +66,9 @@ class Workout : AppCompatActivity(), TextToSpeech.OnInitListener{
            }
            override fun onTick(millisUntilFinished: Long) {
                currentProgress++
-               starterProgressBar.progress=10-currentProgress
-               countDownTimer.text="${10-currentProgress}"
-               speakingCounting(10,currentProgress)
+               starterProgressBar.progress=15-currentProgress
+               countDownTimer.text="${15-currentProgress}"
+               speakingCounting(15,currentProgress)
            }
        }.start()
     }
@@ -95,6 +99,7 @@ class Workout : AppCompatActivity(), TextToSpeech.OnInitListener{
             player!!.stop()
             player=null
         }
+        textToSpeech("")
     }
     private fun exerciseTimer(){
         exerciseProgressBar.progress=exerciseProgress
@@ -117,8 +122,7 @@ class Workout : AppCompatActivity(), TextToSpeech.OnInitListener{
                     textToSpeech("${exerciseList!![exerciseIndex].exerciseName} completed. Take Rest! Upcoming Exercise \n${exercise.exerciseName}")
                     setProgress()
                 }else{
-                    finish()
-                    startActivity(Intent(this@Workout,FinishActivity::class.java))
+                    intentToFinish()
                 }
             }
         }.start()
@@ -168,5 +172,42 @@ class Workout : AppCompatActivity(), TextToSpeech.OnInitListener{
             dialog.dismiss()
         }
         dialog.show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater=menuInflater
+        inflater.inflate(R.menu.workout_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.id.finishMenu){
+            createAlertDialog()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun intentToFinish(){
+        finish()
+        val intent=Intent(this@Workout,FinishActivity::class.java)
+        intent.putExtra("ExerciseNumber",exerciseIndex)
+        startActivity(intent)
+    }
+    private fun createAlertDialog(){
+        this@Workout.let {
+            val builder=AlertDialog.Builder(it)
+            builder.setMessage("Are you sure? Pressing finish will end the exercise.")
+            builder.setTitle("Exit")
+            builder.setIcon(R.drawable.ic_baseline_warning_24)
+            builder.apply {
+             setPositiveButton(R.string.finish) { _, _ ->
+                 intentToFinish()
+             }
+                setNegativeButton("Cancel") { _, _ ->
+                }
+            }
+            builder.create()
+            builder.show()
+        }
     }
 }

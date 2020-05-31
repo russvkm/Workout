@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.exercise_counter_text_view.view.*
@@ -12,7 +13,7 @@ import kotlinx.android.synthetic.main.exercise_counter_text_view.view.*
 class ExerciseNumberAdapter(val exerciseList:ArrayList<ExerciseList>,val context:Context) :RecyclerView.Adapter<ExerciseNumberAdapter.ViewHolder>() {
 
     class ViewHolder(view: View):RecyclerView.ViewHolder(view){
-        val textView=view.exerciseNumberHolderTextView
+        val textView: TextView =view.exerciseNumberHolderTextView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
